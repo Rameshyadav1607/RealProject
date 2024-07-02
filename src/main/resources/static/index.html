@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <div>
+        <p>Total: <span id="total"></span></p>
+        <p>Total In: <span id="totalIn"></span></p>
+        <p>Total Out: <span id="totalOut"></span></p>
+    </div>
+    <script>
+        fetch('/parcels/dashboard')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('total').innerText = data.total;
+                document.getElementById('totalIn').innerText = data.totalIn;
+                document.getElementById('totalOut').innerText = data.totalOut;
+            });
+    </script>
+</body>
+</html>
